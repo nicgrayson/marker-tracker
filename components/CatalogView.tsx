@@ -58,15 +58,15 @@ export default function CatalogView() {
         </p>
       </div>
 
-      {signedIn && (
-        <div className="toolbar">
-          <input
-            className="search"
-            type="search"
-            placeholder="Search code, name, or old code…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+      <div className="toolbar">
+        <input
+          className="search"
+          type="search"
+          placeholder="Search code, name, or old code…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        {signedIn && (
           <div className="chips">
             <button
               className={`chip${showOwnedOnly ? " is-active" : ""}`}
@@ -75,8 +75,8 @@ export default function CatalogView() {
               Owned only
             </button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {!signedIn && !loading && (
         <div className="banner">
