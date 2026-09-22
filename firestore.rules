@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Catalog of all markers: publicly readable, only writable by the
+    // Admin SDK (seed script) so the app can never accidentally mutate it.
+    match /markers/{markerId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Per-user tracker data. Every user's collection and wishlist live under
+    // users/{uid} and are readable/writable only by that user.
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // A user may read their own profile document.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}
