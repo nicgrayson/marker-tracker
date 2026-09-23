@@ -85,6 +85,9 @@ export function useTrackerData(uid: string | undefined, markersById: Map<string,
 
   const toggleWishlist = useCallback(
     async (m: CatalogMarker) => {
+      if (m.retired && !wishedIds.has(m.id)) {
+        throw new Error(`${m.code} ${m.name} has been retired and can't be added to your wishlist.`);
+      }
       await write("wishlist", m.id, wishedIds.has(m.id));
     },
     [write, wishedIds],
@@ -92,6 +95,9 @@ export function useTrackerData(uid: string | undefined, markersById: Map<string,
 
   const moveTo = useCallback(
     async (m: CatalogMarker, from: Status, to: Status) => {
+      if (to === "wishlist" && m.retired) {
+        throw new Error(`${m.code} ${m.name} has been retired and can't be added to your wishlist.`);
+      }
       await write(from, m.id, true);
       await write(to, m.id, false);
     },

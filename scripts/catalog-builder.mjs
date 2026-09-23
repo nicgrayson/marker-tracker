@@ -57,6 +57,7 @@ export function buildMarkers() {
     const code = row[0].trim();
     const name = row[1].trim();
     const hex = row[8].trim();
+    const retired = (row[9] ?? "").trim().length > 0;
 
     let id = code;
     if (seen.has(id)) {
@@ -76,7 +77,7 @@ export function buildMarkers() {
     });
 
     const { h, s } = hexToHsl(hex);
-    markers.push({ id, code, name, hex, family: familyOf(h, s), lines, oldCodes });
+    markers.push({ id, code, name, hex, family: familyOf(h, s), lines, oldCodes, retired });
   }
 
   markers.sort((a, b) => {

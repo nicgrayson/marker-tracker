@@ -1,4 +1,4 @@
-New Code,New Name,Old Honolulu Code,Old Honolulu Name,Old Oahu Code,Old Oahu Name,Old Kaala Code,Old Kaala Name,Hex
+New Code,New Name,Old Honolulu Code,Old Honolulu Name,Old Oahu Code,Old Oahu Name,Old Kaala Code,Old Kaala Name,Hex,Retired
 0,Colorless Blender,0,Colorless Blender,0,Colorless Blender,0,Colorless Blender,ffffff
 120,Black,120,Black,120,Black,120,Black,000000
 B010,Blue Lagoon,,,B389,Fresh Blue,B389,Fresh Blue,5bc4d8
@@ -173,7 +173,7 @@ E97,Deep Rose Grey,E400,Cocoa Brown,,,,,bca09b
 FY00,Fluorescent Yellow,FY010,Fluorescent Yellow,FY010,Fluorescent Yellow,,,efff59
 FY01,Fluorescent Orange,FY020,Fluorescent Orange,FY020,Fluorescent Orange,,,ff8a28
 FY02,Fluorescent Red,FY030,Fluorescent Red,FY030,Fluorescent Red,,,ff5972
-FY03,Fluorescent Violet,FY050,Fluorescent Violet,FY050,Fluorescent Violet,,,6a29ff
+FY04,Fluorescent Violet,FY050,Fluorescent Violet,FY050,Fluorescent Violet,,,6a29ff
 FY03,Fluorescent Pink,,,FY040,Fluorescent Pink,,,ea73ad
 G012,Mineral Green,G330,Mineral Green,,,,,9abeb6
 G013,Muted Turquoise,BG5,Dolphin Blue,,,,,7cb1b0
@@ -494,3 +494,52 @@ YR56,Light Apricot Pink,R090,Light Tea Rose,,,,,f6c8bc
 YR57,Tropical Peach,BR208,Black Brown,YR296,Black Brown,,,ee8354
 YR58,Pink Sand,R050,Chocolate Pink,R294,Chocolate Pink,,,fabdb2
 YR59,Cantaloupe,YR070,Light Orange,,,,,f9af9c
+B00,Ice,,,,,,,f8fcfe,
+B210,Daydream,,,,,BG04,?,a3cbe1,
+B29,Pale Classic Blue,,,,,BG02,?,a4d4e7,
+B30,Bridal Blue,,,,,BG25,?,eff3f5,
+B312,Slate Blue,,,,,BG15,?,82aabd,
+B38,Bridal Shadow,,,,,BG26,?,d5dee5,
+B39,Dove Blue,,,,,BG27,?,c9d4db,
+BG39,Aqua,,,,,BG11,?,a8d9d0,
+BV30,Snow,,,,,,,f2f4f5,
+BV33,Dewdrop,,,,,,,e1edf4,
+BV510,Faded Denim,,,,,BG07,?,82a1cc,
+CG11,Cadet Grey,,,,,MG27,?,e4e5e3,
+E213,Khaki Green,,,,,YG31,?,b49666,
+E23,Champagne Froth,,,,,YG01,?,ece2c2,
+E50,Modern Grey,,,,,MG09,?,eee1cd,
+E810,Rosy Finch,,,,,RG28,?,ac8886,
+E96,Dark Rose Grey,,,,,RG21,?,ccada6,
+G37,Rosemary Green,,,,,GG28,?,7eb993,
+G42,Limeade,,,,,,,e3efd4,
+GG02,Mist,,,,,MG25,?,eaebe6,
+R29,Dusty Fuchsia,,,,,RG05,?,e59aae,
+R53,Lilac Lace,,,,,RG25,?,f0d3de,
+R614,Plum Espresso,,,,,RG30,?,76626b,
+RV00,Evening Primrose,,,,,,,fef4f8,
+RV44,Aged Lilac,,,,,RG26,?,dfbfd4,
+RV52,Pale Lilac,,,,,,,efdbe9,
+V11,Pale Orchid,,,,,BG35,?,ece2ef,
+WG11,Baby Powder White,,,,,MG33,?,f1f1ee,
+Y312,Dark Moon Yellow,,,,,YG07,?,d8b05f,
+Y38,Wheat,,,,,YG05,?,e3c59a,
+Y40,Lemon Meringue,,,,,,,f8f2e7,
+Y41,Vanilla Yellow,,,,,,,f6e4d5,
+Y52,Corn Silk,,,,,,,f9efd5,
+Y53,Champagne,,,,,,,fbeed4,
+Y58,Orange Sorbet,,,,,YG04,?,edc68d,
+YG00,Lemon Water,,,,,,,f8fae8,
+YG011,Wasabi,,,,,YG28,?,dbd790,
+YG05,Pale Yellow Green,,,,,YG27,?,e3c69a,
+YG314,Army Green,,,,,GG23,?,a8a97c,
+YG512,Sap Green,,,,,GG20,?,98ac55,
+YG59,Avacado Green,,,,,GG18,?,c2d67e,
+YGY20,Shoreline Grey,,,,,YG33,?,eeede6,
+YGY23,Grey Screen,,,,,YG35,?,d3d1c9,
+YR016,Canyon Red,,,,,,,d07b46,
+YR35,Pale Rose,,,,,RG10,?,f8c4b2,
+YR42,Light Champagne,,,,,RG01,?,fde5db,
+YR50,Seashell,,,,,,,faf5ee,
+YR53,Rose Quartz,,,,,,,fbdccf,
+GY163,Green Bice,GY163,Green Bice,,,,,cfe07e,1

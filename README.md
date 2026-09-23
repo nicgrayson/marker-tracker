@@ -9,9 +9,10 @@ Built with **Next.js 15** (fully static export for GitHub Pages) + **Firebase**
 
 ## Features
 
-- **Catalog** — every Ohuhu color (495 entries, 2025 unified numbering), filterable
+- **Catalog** — every Ohuhu color (544 entries, 2025/2026 unified numbering), filterable
   by marker line (Honolulu / Oahu / Kaala), color family, and searchable by new
-  code, name, or old code.
+  code, name, or old code. Retired colors (e.g. GY163 Green Bice) are kept in the
+  catalog but marked **Retired** and can't be added to your wishlist.
 - **My Collection** — the colors you own, with counts and % of catalog.
 - **Want to Buy** — a manual wishlist, independent of the collection.
 - **Private per user** — data lives under `users/{uid}` with Firestore security
@@ -106,9 +107,10 @@ node scripts/build-catalog.mjs   # regenerates lib/catalogData.ts
 npm run typecheck
 ```
 
-Update the CSV (add/rename colors, fix hex values) and regenerate. To keep the
-bundle lean, only the 2025 unified catalog is shipped; old codes are preserved
-per marker so you can still search for your old markers.
+Update the CSV (add/rename colors, fix hex values) and regenerate. Old codes are
+preserved per marker so you can still search for your old markers. Rows that
+should be searchable but not purchasable (discontinued colors) get a non-empty
+`Retired` column and show a "Retired" badge in the app.
 
 > Note: hex values are approximate swatch reproductions (from the community-maintained
 > [Ohuhu Palette Generator](https://github.com/MysticSparkleWings/OhuhuPaletteGenerator)

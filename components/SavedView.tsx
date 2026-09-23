@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { useTrackerData, type Status } from "@/lib/useTrackerData";
 import { markersById, catalog } from "@/lib/catalog";
@@ -32,6 +33,7 @@ export default function SavedView({ title, blurb, status, otherLabel, emptyMessa
   const items: CatalogMarker[] = status === "collection" ? tracker.ownedMarkers : tracker.wishedMarkers;
   const count = items.length;
   const percent = user ? Math.round((count / catalog.length) * 1000) / 10 : 0;
+  const [error, setError] = useState<string | null>(null);
 
   if (loading) {
     return (
@@ -53,8 +55,14 @@ export default function SavedView({ title, blurb, status, otherLabel, emptyMessa
     );
   }
 
-  const move = (marker: CatalogMarker) =>
-    tracker.moveTo(marker, status, status === "collection" ? "wishlist" : "collection");
+  const move = async (marker: CatalogMarker) => {
+    setError(null);
+    try {
+      await tracker.moveTo(marker, status, status === "collection" ? "wishlist" : "collection");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Something went wrong.");
+    }
+  };
   const remove = (marker: CatalogMarker) => tracker.remove(marker, status);
 
   return (
@@ -66,6 +74,8 @@ export default function SavedView({ title, blurb, status, otherLabel, emptyMessa
           {user && ` (${percent}% of the ${catalog.length}-color catalog)`}.
         </p>
       </div>
+
+      {error && <div className="banner banner-error">{error}</div>}
 
       {items.length === 0 ? (
         <p className="muted">{emptyMessage}</p>

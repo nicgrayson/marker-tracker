@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { CatalogMarker, Line } from "@/lib/types";
 
 const LINE_COLORS: Record<Line, string> = {
@@ -34,6 +35,16 @@ export default function MarkerCard({
   onToggleWishlist,
 }: MarkerCardProps) {
   const over = textOn(marker.hex);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleWish = async () => {
+    setError(null);
+    try {
+      await onToggleWishlist();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Couldn't update your wishlist.");
+    }
+  };
 
   return (
     <div className={`card${owned ? " is-owned" : ""}${wished ? " is-wished" : ""}`}>
@@ -55,6 +66,11 @@ export default function MarkerCard({
               {line}
             </span>
           ))}
+          {marker.retired && (
+            <span className="line-badge retired" title="Discontinued — no longer sold">
+              Retired
+            </span>
+          )}
         </div>
 
         <div className="card-actions">
@@ -70,11 +86,13 @@ export default function MarkerCard({
             className={`btn btn-action${wished ? " is-active wish" : ""}`}
             disabled={!signedIn}
             title={signedIn ? undefined : "Sign in to save to your wishlist"}
-            onClick={onToggleWishlist}
+            onClick={handleWish}
           >
             {wished ? "★ Wanted" : "Want"}
           </button>
         </div>
+
+        {error && <p className="card-error">{error}</p>}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ export interface CatalogMarker {
   family: string;
   lines: Line[];
   oldCodes: Partial<Record<Line, string>>;
+  retired?: boolean;
 }
 
 export interface Family {

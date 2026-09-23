@@ -48,7 +48,7 @@ export default function CatalogView() {
       <div className="page-head">
         <h1>Ohuhu Marker Catalog</h1>
         <p className="muted">
-          {catalog.length} colors across Honolulu, Oahu and Kaala (2025 unified numbering).
+          {catalog.length} colors across Honolulu, Oahu and Kaala (2025 unified numbering, incl. 2026 additions).
           {signedIn && (
             <>
               {" "}

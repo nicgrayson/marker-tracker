@@ -39,6 +39,7 @@ for (let start = 0; start < markers.length; start += BATCH_SIZE) {
       family: marker.family,
       lines: marker.lines,
       oldCodes: marker.oldCodes,
+      retired: Boolean(marker.retired),
     });
   }
   await batch.commit();
