@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import MarkerCard from "@/components/MarkerCard";
-import { catalog, families, markersById } from "@/lib/catalog";
+import { catalog, families, markersById, normalizeSearch } from "@/lib/catalog";
 import { useTrackerData } from "@/lib/useTrackerData";
 import type { Line } from "@/lib/types";
 
@@ -20,12 +20,10 @@ export default function CatalogView() {
   const visible = useMemo(() => {
     let results = catalog;
     if (query.trim()) {
-      const q = query.trim().toLowerCase();
-      results = results.filter((m) => {
-        if (m.code.toLowerCase().includes(q)) return true;
-        if (m.name.toLowerCase().includes(q)) return true;
-        return Object.values(m.oldCodes).some((old) => old && old.toLowerCase().includes(q));
-      });
+      const q = normalizeSearch(query.trim());
+      results = results.filter((m) =>
+        normalizeSearch(`${m.code} ${m.name} ${Object.values(m.oldCodes).join(" ")}`).includes(q),
+      );
     }
     if (lineFilter !== "all") {
       results = results.filter((m) => m.lines.includes(lineFilter));
